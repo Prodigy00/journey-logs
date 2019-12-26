@@ -8,7 +8,7 @@ import SignupScreen from "./src/screens/SignupScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
-import { Provider as AuthProvider } from "./src/context/authContext";
+import { Provider as AuthProvider } from "./src/context/AuthContext";
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
