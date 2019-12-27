@@ -7,7 +7,8 @@ import Map from "../components/Map";
 const TrackCreate = () => {
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text h3>TrackCreate</Text>
+      <Text h2>Create a Track</Text>
+      <Map />
     </SafeAreaView>
   );
 };
