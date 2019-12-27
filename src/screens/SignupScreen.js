@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { StyleSheet, View } from "react-native";
 import NavLink from "../components/NavLink";
 import AuthForm from "../components/AuthForm";
