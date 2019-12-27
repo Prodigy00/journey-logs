@@ -7,6 +7,7 @@ const ADD_ERROR = "ADD_ERROR";
 const SIGN_UP = "SIGN_UP";
 const SIGN_IN = "SIGN_IN";
 const CLEAR_ERROR = "CLEAR_ERROR";
+const SIGN_OUT = "SIGN_OUT";
 //reducer
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -14,6 +15,8 @@ const authReducer = (state, action) => {
       return { errorMessage: "", token: action.payload };
     case SIGN_IN:
       return { errorMessage: "", token: action.payload };
+    case SIGN_OUT:
+      return { token: null, errorMessage: "" };
     case ADD_ERROR:
       return { ...state, errorMessage: action.payload };
     case CLEAR_ERROR:
@@ -65,7 +68,12 @@ const tryLocalSignin = dispatch => async () => {
   }
 };
 
-const signOut = dispatch => () => {};
+const signOut = dispatch => async () => {
+  await AsyncStorage.removeItem("token");
+  dispatch({ type: SIGN_OUT });
+
+  navigate("loginFlow");
+};
 
 //export Prov and Ctxt
 export const { Provider, Context } = createDataContext(
