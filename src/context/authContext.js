@@ -6,6 +6,7 @@ import { navigate } from "../navigationRef";
 const ADD_ERROR = "ADD_ERROR";
 const SIGN_UP = "SIGN_UP";
 const SIGN_IN = "SIGN_IN";
+const CLEAR_ERROR = "CLEAR_ERROR";
 //reducer
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -15,6 +16,8 @@ const authReducer = (state, action) => {
       return { errorMessage: "", token: action.payload };
     case ADD_ERROR:
       return { ...state, errorMessage: action.payload };
+    case CLEAR_ERROR:
+      return { ...state, errorMessage: "" };
     default:
       return state;
   }
@@ -48,11 +51,15 @@ const signIn = dispatch => async ({ email, password }) => {
   }
 };
 
+const clearErrorMsg = dispatch => () => {
+  dispatch({ type: CLEAR_ERROR });
+};
+
 const signOut = dispatch => () => {};
 
 //export Prov and Ctxt
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signUp, signIn, signOut },
+  { signUp, signIn, signOut, clearErrorMsg },
   { token: null, errorMessage: "" }
 );
