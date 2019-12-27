@@ -55,11 +55,21 @@ const clearErrorMsg = dispatch => () => {
   dispatch({ type: CLEAR_ERROR });
 };
 
+const tryLocalSignin = dispatch => async () => {
+  const token = await AsyncStorage.getItem("token");
+  if (token) {
+    dispatch({ type: SIGN_IN, payload: token });
+    navigate("TrackList");
+  } else {
+    navigate("Signup");
+  }
+};
+
 const signOut = dispatch => () => {};
 
 //export Prov and Ctxt
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signUp, signIn, signOut, clearErrorMsg },
+  { signUp, signIn, signOut, clearErrorMsg, tryLocalSignin },
   { token: null, errorMessage: "" }
 );
