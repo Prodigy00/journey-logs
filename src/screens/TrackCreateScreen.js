@@ -1,4 +1,4 @@
-import "../_mockLocation";
+// import "../_mockLocation";
 import React, { useContext, useCallback } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
@@ -24,9 +24,11 @@ const TrackCreate = ({ isFocused }) => {
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text h2>Create a Track</Text>
+      <Text h2>Create a Log</Text>
       <Map />
-      {err ? <Text>Please enable location services</Text> : null}
+      {err ? (
+        <Text style={styles.errMsg}>Please enable location services</Text>
+      ) : null}
       <TrackForm />
     </SafeAreaView>
   );
@@ -37,6 +39,11 @@ TrackCreate.navigationOptions = {
   tabBarIcon: <FontAwesome name="plus" size={25} />
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  errMsg: {
+    fontSize: 16,
+    color: "red"
+  }
+});
 
 export default withNavigationFocus(TrackCreate);

@@ -10,7 +10,9 @@ const AccountScreen = () => {
   const { signOut } = useContext(AuthContext);
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text style={{ fontSize: 40 }}>Account Screen</Text>
+      <Spacer>
+        <Text style={{ fontSize: 40, alignSelf: "center" }}>Account</Text>
+      </Spacer>
       <Spacer>
         <Button title="Sign Out" onPress={signOut} />
       </Spacer>
