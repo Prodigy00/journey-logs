@@ -43,8 +43,9 @@ const changeTrackName = dispatch => name => {
 
 export const { Provider, Context } = createDataContext(
   locationReducer,
-  { startRecording, stopRecording, addLocation },
+  { startRecording, stopRecording, addLocation, changeTrackName },
   {
+    name: "",
     recording: false,
     locations: [],
     currentLocation: null
