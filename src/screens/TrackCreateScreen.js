@@ -11,6 +11,7 @@ const TrackCreate = () => {
     try {
       await requestPermissionsAsync();
     } catch (error) {
+      //   console.log({ err: error });
       SetErr(error);
     }
   };
