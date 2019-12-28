@@ -7,6 +7,7 @@ import useLocation from "../hooks/useLocation";
 import Map from "../components/Map";
 import { Context as LocationContext } from "../context/LocationContext";
 import TrackForm from "../components/TrackForm";
+import { FontAwesome } from "@expo/vector-icons";
 
 const TrackCreate = ({ isFocused }) => {
   const {
@@ -29,6 +30,11 @@ const TrackCreate = ({ isFocused }) => {
       <TrackForm />
     </SafeAreaView>
   );
+};
+
+TrackCreate.navigationOptions = {
+  title: "Add Log",
+  tabBarIcon: <FontAwesome name="plus" size={25} />
 };
 
 const styles = StyleSheet.create({});
