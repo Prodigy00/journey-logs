@@ -42,7 +42,7 @@ const switchNavigator = createSwitchNavigator(
     initialRouteName: "ResolveAuth"
   }
 );
-/**c */
+/**c - extra */
 const App = createAppContainer(switchNavigator);
 
 export default () => {
